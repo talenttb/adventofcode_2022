@@ -1,0 +1,1 @@
+make newDay DAY=3
