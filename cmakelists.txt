@@ -1,0 +1,21 @@
+# 最低要求的 cmake 版本
+cmake_minimum_required(VERSION 3.25)
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+ 
+# project name
+project(main)
+ 
+# flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20 -stdlib=libc++ -Wall")
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
+
+# file(GLOB SOURCES "project/*.cpp")
+file(GLOB_RECURSE SOURCES "project/days/*.cpp")
+add_library(days ${SOURCES})
+# 輸出的執行檔
+add_executable(main project/main.cpp)
+
+target_link_libraries(main days)
