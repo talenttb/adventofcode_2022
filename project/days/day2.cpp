@@ -1,107 +1,111 @@
 #include "day2.h"
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
-
+#include "../utils/util.h"
 using namespace std;
 
 int day2q1(bool test) {
-  string path = "";
-  if (test) {
-    path = "../project/inputs/day2";
-  } else {
-    path = "../project/inputs/day2Test";
-  }
+  string file_name = (test) ? "day2" : "day2Test";
+  string path = "/Users/liyu/talenttb/adventofcode_2022/project/inputs/" + file_name;
 
   cout << path << endl;
 
   ifstream file(path);
   string line;
-  vector<int> result;
-  vector<int> group;
-
+  int result = 0;
+  //   vector<int> group;
+  map<string, int> rps_map = {{"LOST", 0}, {"DRAW", 3}, {"WON", 6}, {"X", 1}, {"Y", 2}, {"Z", 3}};
   while (getline(file, line)) {
-    cout << line << "\n";
-    // if (line.empty()) {
-    //   // calculate
-    //   //   auto result = reduce(group.begin(), group.end());
-    //   auto sum = 0;
-    //   for (auto& n : group) {
-    //     sum += n;
-    //   }
-    //   group.clear();
-    //   result.push_back(sum);
-    //   continue;
-    // }
-    // group.push_back(stoi(line, 0, 10));
+    // cout << line << "\n";
+    vector<string> v = splitString(line, " ");
+    // cout << v[0] << " ~~~ " << v[1] << endl;
+    // 0 if you lost, 3 if the score was a draw, and 6 if you won
+    // 1 for Rock, 2 for Paper, and 3 for Scissors
+    // A for Rock, B for Paper, and C for Scissors
+    // X for Rock, Y for Paper, and Z for Scissors
+    auto game = v[0] + v[1];
+    int score = 0;
+    // cout << game << endl;
+    score += rps_map[v[1]];
+    if (game == "AX") {
+      score += rps_map["DRAW"];
+    } else if (game == "AY") {
+      score += rps_map["WON"];
+    } else if (game == "AZ") {
+      score += rps_map["LOST"];
+    } else if (game == "BX") {
+      score += rps_map["LOST"];
+    } else if (game == "BY") {
+      score += rps_map["DRAW"];
+    } else if (game == "BZ") {
+      score += rps_map["WON"];
+    } else if (game == "CX") {
+      score += rps_map["WON"];
+    } else if (game == "CY") {
+      score += rps_map["LOST"];
+    } else if (game == "CZ") {
+      score += rps_map["DRAW"];
+    } else {
+    }
+
+    cout << "Round: " << game << ". Score: " << score << endl;
+    result += score;
   }
-
-  //   auto sum = 0;
-  //   for (auto& n : group) {
-  //     sum += n;
-  //   }
-  //   group.clear();
-  //   result.push_back(sum);
-
-  //   cout << result.size() << endl;
-  //   copy(result.begin(), result.end(), ostream_iterator<int>(cout, "; "));
-  //   cout << endl;
-
-  //   int ans = *max_element(result.begin(), result.end());
-  //   cout << "Answer is: " << ans << endl;
-  //   return ans;
-  return 0;
+  file.close();
+  cout << "Answer: " << result << endl;
+  cout << "Done" << endl;
+  return result;
 }
 
 int day2q2(bool test) {
-  cout << "day2q2:" << test << endl;
-  string path = "";
-  if (test) {
-    path = "../project/inputs/day2";
-  } else {
-    path = "../project/inputs/day2Test";
-  }
+  string file_name = (test) ? "day2" : "day2Test";
+  string path = "/Users/liyu/talenttb/adventofcode_2022/project/inputs/" + file_name;
 
   cout << path << endl;
 
   ifstream file(path);
   string line;
-  vector<int> result;
-  vector<int> group;
-
+  int result = 0;
+  map<string, int> rps_map = {{"X", 0}, {"Y", 3}, {"Z", 6}};
   while (getline(file, line)) {
-    // cout << line << "\n";
-    if (line.empty()) {
-      // calculate
-      //   auto result = reduce(group.begin(), group.end());
-      auto sum = 0;
-      for (auto& n : group) {
-        sum += n;
-      }
-      group.clear();
-      result.push_back(sum);
-      continue;
+    vector<string> v = splitString(line, " ");
+    // 0 if you lost, 3 if the score was a draw, and 6 if you won
+    // 1 for Rock, 2 for Paper, and 3 for Scissors
+    // A for Rock, B for Paper, and C for Scissors
+    // X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win
+    auto game = v[0] + v[1];
+    int score = 0;
+    // cout << game << endl;
+    score += rps_map[v[1]];
+    if (game == "AX") {
+      score += 3;
+    } else if (game == "AY") {
+      score += 1;
+    } else if (game == "AZ") {
+      score += 2;
+    } else if (game == "BX") {
+      score += 1;
+    } else if (game == "BY") {
+      score += 2;
+    } else if (game == "BZ") {
+      score += 3;
+    } else if (game == "CX") {
+      score += 2;
+    } else if (game == "CY") {
+      score += 3;
+    } else if (game == "CZ") {
+      score += 1;
+    } else {
     }
-    group.push_back(stoi(line, 0, 10));
+
+    cout << "Round: " << game << ". Score: " << score << endl;
+    result += score;
   }
-
-  auto sum = 0;
-  for (auto& n : group) {
-    sum += n;
-  }
-  group.clear();
-  result.push_back(sum);
-
-  sort(result.begin(), result.end(), [](int a, int b) {
-    return a > b;  // 升序排列
-  });
-
-  //   cout << result.size() << endl;
-  //   copy(result.begin(), result.end(), ostream_iterator<int>(cout, "; "));
-  //   cout << endl;
-
-  int ans = result[0] + result[1] + result[2];
-  cout << "Answer is: " << ans << endl;
-  return ans;
+  file.close();
+  cout << "Answer: " << result << endl;
+  cout << "Done" << endl;
+  return result;
 }

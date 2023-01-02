@@ -15,7 +15,10 @@ include(CPack)
 # file(GLOB SOURCES "project/*.cpp")
 file(GLOB_RECURSE SOURCES "project/days/*.cpp")
 add_library(days ${SOURCES})
+file(GLOB_RECURSE UTILS "project/utils/*.cpp")
+add_library(utils ${UTILS})
 # 輸出的執行檔
 add_executable(main project/main.cpp)
 
+target_link_libraries(days utils)
 target_link_libraries(main days)

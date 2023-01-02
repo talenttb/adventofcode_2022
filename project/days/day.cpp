@@ -6,16 +6,13 @@
 using namespace std;
 
 int dayXq1(bool test) {
-  string path = "";
-  if (test) {
-    path = "../project/inputs/dayX";
-  } else {
-    path = "../project/inputs/dayX";
-  }
+  string file_name = (test) ? "dayX" : "dayXTest";
+  string path = "/Users/liyu/talenttb/adventofcode_2022/project/inputs/" + file_name;
 
   cout << path << endl;
 
   ifstream file(path);
+  //   vector<int> result;
   string line;
 
   while (getline(file, line)) {
@@ -31,12 +28,8 @@ int dayXq1(bool test) {
 }
 
 int dayXq2(bool test) {
-  string path = "";
-  if (test) {
-    path = "../project/inputs/dayX";
-  } else {
-    path = "../project/inputs/dayX";
-  }
+  string file_name = (test) ? "dayX" : "dayXTest";
+  string path = "/Users/liyu/talenttb/adventofcode_2022/project/inputs/" + file_name;
 
   cout << path << endl;
 
