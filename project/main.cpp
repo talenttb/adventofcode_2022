@@ -1,10 +1,10 @@
 #include <iostream>
-#include "days/days.h"
+#include "days/day1.h"
+#include "days/day2.h"
 
 int main() {
   //   day1q1(true);
-  day1q2(true);
-  //   std::cout << "Result is : " << day1q1(true);
-  //   std::cout << "Hello World!";
+  //   day1q2(true);
+  day2q1();
   return 0;
 }
