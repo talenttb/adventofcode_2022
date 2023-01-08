@@ -1,5 +1,6 @@
 #include "util.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -15,4 +16,10 @@ vector<string> splitString(string str, string delimiter) {
   }
   result.push_back(str.substr(start, end - start));
   return result;
+}
+
+template <typename T>
+void outVec(const T& t) {
+  std::copy(t.cbegin(), t.cend(), std::ostream_iterator<typename T::value_type>(std::cout, ", "));
+  cout << endl;
 }
