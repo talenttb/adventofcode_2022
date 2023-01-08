@@ -1,2 +1,2 @@
-int dayXq1(bool = false);
-int dayXq2(bool = false);
+void dayXq1(bool = false);
+void dayXq2(bool = false);

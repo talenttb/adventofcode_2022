@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int dayXq1(bool test) {
+void dayXq1(bool test) {
   string file_name = (test) ? "dayX" : "dayXTest";
   string path = "/Users/liyu/talenttb/adventofcode_2022/project/inputs/" + file_name;
 
@@ -24,10 +24,9 @@ int dayXq1(bool test) {
 
   int ans = 0;
   cout << "Answer is: " << ans << endl;
-  return ans;
 }
 
-int dayXq2(bool test) {
+void dayXq2(bool test) {
   string file_name = (test) ? "dayX" : "dayXTest";
   string path = "/Users/liyu/talenttb/adventofcode_2022/project/inputs/" + file_name;
 
@@ -45,5 +44,4 @@ int dayXq2(bool test) {
 
   int ans = 0;
   cout << "Answer is: " << ans << endl;
-  return ans;
 }
