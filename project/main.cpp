@@ -1,11 +1,10 @@
-#include <iostream>
-#include <vector>
 #include "days/day1.h"
 #include "days/day2.h"
 #include "days/day3.h"
 #include "days/day4.h"
 #include "days/day5.h"
 #include "days/day6.h"
+#include "days/day7.h"
 
 int main() {
   //   day1q1(true);
@@ -19,7 +18,9 @@ int main() {
   //   day5q1(true);
   //   day5q2(true);
   //   day6q1(true);
-  day6q2(true);
+  //   day6q2(true);
+  //   day7q1(true);
+  day7q2(true);
 
   //   dayXq1();
   //   dayXq1(true);
