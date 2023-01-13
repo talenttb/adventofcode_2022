@@ -5,6 +5,7 @@
 #include "days/day5.h"
 #include "days/day6.h"
 #include "days/day7.h"
+#include "days/day8.h"
 
 int main() {
   //   day1q1(true);
@@ -20,8 +21,10 @@ int main() {
   //   day6q1(true);
   //   day6q2(true);
   //   day7q1(true);
-  day7q2(true);
+  //   day7q2(true);
 
+  //   day8q1(true);
+  //   day8q2(true);
   //   dayXq1();
   //   dayXq1(true);
   //   dayXq2();
