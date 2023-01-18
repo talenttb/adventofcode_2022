@@ -12,17 +12,17 @@ void dayXq1(bool test) {
   cout << path << endl;
 
   ifstream file(path);
-  //   vector<int> result;
+  //   vector<int> data;
+  int ans = 0;
   string line;
 
   while (getline(file, line)) {
     // cout << line << "\n";
-    if (line.empty()) {
-      continue;
-    }
+    // if (line.empty()) {
+    //   continue;
+    // }
   }
 
-  int ans = 0;
   cout << "Answer is: " << ans << endl;
 }
 
