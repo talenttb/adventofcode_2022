@@ -170,12 +170,12 @@ void day11q1(bool test) {
       auto monkey = data[i];
       for (auto item : monkey.items) {
         ans.at(i) += 1;
-        // auto v = monkey.getOperateResult(item);
-        // if (v % monkey.divide == 0) {
-        //   data.at(monkey.trueIdx).appendItem(v);
-        // } else {
-        //   data.at(monkey.falseIdx).appendItem(v);
-        // }
+        auto v = monkey.getOperateResult((int)item);
+        if (v % monkey.divide == 0) {
+          data.at(monkey.trueIdx).appendItem(v);
+        } else {
+          data.at(monkey.falseIdx).appendItem(v);
+        }
       }
       data[i].items.clear();
       //   data[i].clearItems();
