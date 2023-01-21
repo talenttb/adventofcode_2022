@@ -109,5 +109,5 @@ void day10q2(bool test) {
     }
   }
 
-  cout << "Answer is: RZHFGJCB" << endl;
+  cout << "Answer is: RZHFGJCB" << ans << endl;
 }

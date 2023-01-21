@@ -33,4 +33,5 @@
 
 output/**
 build/*
+ext/*
 .vscode/

@@ -1,6 +1,18 @@
 # 最低要求的 cmake 版本
 cmake_minimum_required(VERSION 3.25)
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+set(Boost_DEBUG ON)
+
+# boost
+set(BOOST_ROOT "/Users/liyu/talenttb/adventofcode_2022/ext/boost/1.81.0_1")
+set(BOOST_INCLUDE_DIR "/Users/liyu/talenttb/adventofcode_2022/ext/boost/1.81.0_1/include")
+include_directories(${BOOST_INCLUDE_DIR})
+set(BOOST_LIBRARYDIR "/Users/liyu/talenttb/adventofcode_2022/ext/boost/1.81.0_1/lib")
+link_directories(${Boost_LIBRARYDIR})
+find_package(Boost REQUIRED)
+# find_package(Boost REQUIRED COMPONENTS system multiprecision)
+# find_package(Boost 1.81.0 REQUIRED COMPONENTS system multiprecision)
+
 
 # project name
 project(main)
@@ -22,3 +34,4 @@ add_executable(main project/main.cpp)
 
 target_link_libraries(days utils)
 target_link_libraries(main days)
+target_link_libraries(main Boost::boost)
