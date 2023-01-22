@@ -137,75 +137,59 @@ void day8q2(bool test) {
     }
   }
   int tmp, check, up, down, left, right;
-  bool visible = true;
   int ans = 0;
   for (int i = 1; i < N - 1; i++) {
     for (int j = 1; j < N - 1; j++) {
       auto curr = *(array + (i * N) + j);
       //   cout << *(array + (i * N) + j) << " ";
       // left
-      visible = true;
       tmp = j - 1;
       left = 0;
       while (tmp >= 0) {
         left++;
         check = *(array + (i * N) + tmp);
         if (curr <= check) {
-          visible = false;
           break;
         }
         tmp--;
       }
 
       // up
-      visible = true;
       tmp = i - 1;
       up = 0;
       while (tmp >= 0) {
         up++;
         check = *(array + (tmp * N) + j);
         if (curr <= check) {
-          visible = false;
           break;
         }
         tmp--;
       }
 
       // down
-      visible = true;
       tmp = i + 1;
       down = 0;
       while (tmp < N) {
         down++;
         check = *(array + (tmp * N) + j);
         if (curr <= check) {
-          visible = false;
           break;
         }
         tmp++;
       }
-      //   if (visible) {
-      //     ans += step;
-      //     continue;
-      //   }
 
       // right
-      visible = true;
       tmp = j + 1;
       right = 0;
       while (tmp < N) {
         right++;
         check = *(array + (i * N) + tmp);
         if (curr <= check) {
-          visible = false;
           break;
         }
         tmp++;
       }
-      //   if (visible) {
-      //     ans += step;
-      //     continue;
-      //   }
+
       if (up * down * left * right > ans) {
         ans = up * down * left * right;
       }
