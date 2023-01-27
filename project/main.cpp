@@ -3,6 +3,7 @@
 #include "days/day11.h"
 #include "days/day12.h"
 #include "days/day13.h"
+#include "days/day14.h"
 #include "days/day2.h"
 #include "days/day3.h"
 #include "days/day4.h"
@@ -37,9 +38,13 @@ int main() {
   //   day11q2(true);
   //   day12q1(true);
   //   day12q2(true);
-
   //   day13q1(true);
-  day13q2(true);
+  //   day13q2(true);
+
+  //   day14q1();
+  //   day14q1(true);
+  //   day14q2();
+  day14q2(true);
 
   //   dayXq1();
   //   dayXq1(true);
